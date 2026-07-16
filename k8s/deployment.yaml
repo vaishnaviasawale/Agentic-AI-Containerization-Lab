@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: orchestrator-agent
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: orchestrator-agent
+
+  template:
+
+    metadata:
+      labels:
+        app: orchestrator-agent
+
+    spec:
+      containers:
+
+      - name: api
+
+        image: task-orchestrator-agent:latest
+
+        ports:
+        - containerPort: 8000
